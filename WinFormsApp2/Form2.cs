@@ -73,7 +73,39 @@ namespace WinFormsApp2
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            
+            //Login
+
+            if (string.IsNullOrEmpty(materialTextBox1.Text) || string.IsNullOrEmpty(materialTextBox2.Text))
+            {
+                // Check if textbox is Empty
+                MessageBox.Show("Favor de Ingresar los Datos Correctos");
+            }
+            else
+            {
+                //Looping to get the match data using foreach
+                FirebaseResponse response = client.Get("Usuario/");
+                Dictionary<string, register> result = response.ResultAs<Dictionary<string, register>>();
+
+                foreach (var get in result)
+                {
+                    string emailresult = get.Value.correo;
+                    string passresult = get.Value.password;
+
+                    if (materialTextBox1.Text == emailresult)
+                    {
+
+                        if (materialTextBox2.Text == passresult)
+                        {
+                            usernamepass = materialTextBox1.Text;
+                            Form1 onj = new Form1();
+                            this.Hide();
+                            onj.ShowDialog();
+
+                        }
+
+                    }
+                }
+            }
         }
 
         private void materialLabel3_Click(object sender, EventArgs e)
