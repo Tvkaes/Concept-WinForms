@@ -19,7 +19,7 @@ namespace WinFormsApp2
 {
     public partial class Form3 : MaterialForm
     {
-        
+
         IFirebaseConfig config = new FirebaseConfig
         {
 
@@ -39,6 +39,8 @@ namespace WinFormsApp2
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Red200, TextShade.WHITE);
         }
+
+        
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -60,6 +62,7 @@ namespace WinFormsApp2
                 MessageBox.Show("Connection Fail.");
             }
         }
+       
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -75,18 +78,19 @@ namespace WinFormsApp2
                 //Clase de Registro
                 var register = new register
                 {
-
-                    usuario = materialTextBox2.Text,
+                    
+                    nombre = materialTextBox2.Text,
                     password = materialTextBox3.Text,
-                    correo = materialTextBox1.Text
-
+                    usuario= materialTextBox1.Text
                 };
-
                 
+
+
                 FirebaseResponse response = client.Set("Usuario/" + materialTextBox1.Text, register);
 
                 register res = response.ResultAs<register>();
                 MessageBox.Show("Registro Realizado");
+                
                 materialTextBox1.Text = string.Empty;
                 materialTextBox2.Text = string.Empty;
                 materialTextBox3.Text = string.Empty;
@@ -99,14 +103,12 @@ namespace WinFormsApp2
         }
         private void id_Leave(object sender, EventArgs e)
         {
-            //Identifying if the ID is existed or not.
-            // From looping it using foreach.
-
+            //Verifica si el correo utilizado existe
             FirebaseResponse response = client.Get("Usuario/");
             Dictionary<string, register> getSameId = response.ResultAs<Dictionary<string, register>>();
             foreach (var sameID in getSameId)
             {
-                string getsame = sameID.Value.correo;
+                string getsame = sameID.Value.usuario;
                 if (materialTextBox1.Text == getsame)
                 {
                     MessageBox.Show("Este correo ya esta en uso");

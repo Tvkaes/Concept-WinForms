@@ -39,7 +39,9 @@ namespace WinFormsApp2
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Red200, TextShade.WHITE);
         }
-
+        //declaracion de string statico
+        public static string nombreUsuario;
+        
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -63,8 +65,7 @@ namespace WinFormsApp2
                 MessageBox.Show("Conexion fallida");
             }
         }
-        //declaracion de string statico
-        public static string usernamepass;
+        
 
         private void materialLabel2_Click(object sender, EventArgs e)
         {
@@ -77,18 +78,18 @@ namespace WinFormsApp2
 
             if (string.IsNullOrEmpty(materialTextBox1.Text) || string.IsNullOrEmpty(materialTextBox2.Text))
             {
-                // Check if textbox is Empty
+                // verifica si un textbox esta vacio
                 MessageBox.Show("Favor de Ingresar los Datos Correctos");
             }
             else
             {
-                //Looping to get the match data using foreach
+                //busca los ususarios que sean iguales a la informacion ingresada
                 FirebaseResponse response = client.Get("Usuario/");
                 Dictionary<string, register> result = response.ResultAs<Dictionary<string, register>>();
 
                 foreach (var get in result)
                 {
-                    string emailresult = get.Value.correo;
+                    string emailresult = get.Value.usuario;
                     string passresult = get.Value.password;
 
                     if (materialTextBox1.Text == emailresult)
@@ -96,7 +97,7 @@ namespace WinFormsApp2
 
                         if (materialTextBox2.Text == passresult)
                         {
-                            usernamepass = materialTextBox1.Text;
+                            nombreUsuario = materialTextBox1.Text;
                             Form1 onj = new Form1();
                             this.Hide();
                             onj.ShowDialog();
