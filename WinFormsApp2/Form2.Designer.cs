@@ -73,6 +73,7 @@ namespace WinFormsApp2
             this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox2.Multiline = false;
             this.materialTextBox2.Name = "materialTextBox2";
+            this.materialTextBox2.Password = true;
             this.materialTextBox2.Size = new System.Drawing.Size(201, 50);
             this.materialTextBox2.TabIndex = 2;
             this.materialTextBox2.Text = "";

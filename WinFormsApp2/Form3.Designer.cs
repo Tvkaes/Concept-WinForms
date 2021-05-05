@@ -43,7 +43,7 @@ namespace WinFormsApp2
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
             this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialTextBox1.Location = new System.Drawing.Point(143, 126);
+            this.materialTextBox1.Location = new System.Drawing.Point(170, 129);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox1.Multiline = false;
@@ -57,19 +57,19 @@ namespace WinFormsApp2
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(63, 146);
+            this.materialLabel1.Location = new System.Drawing.Point(90, 149);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(47, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(55, 19);
             this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Correo";
+            this.materialLabel1.Text = "Usuario";
             // 
             // materialTextBox2
             // 
             this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox2.Depth = 0;
             this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialTextBox2.Location = new System.Drawing.Point(143, 195);
+            this.materialTextBox2.Location = new System.Drawing.Point(170, 198);
             this.materialTextBox2.MaxLength = 50;
             this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox2.Multiline = false;
@@ -83,7 +83,7 @@ namespace WinFormsApp2
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(6, 211);
+            this.materialLabel2.Location = new System.Drawing.Point(33, 214);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(129, 19);
@@ -92,10 +92,11 @@ namespace WinFormsApp2
             // 
             // materialTextBox3
             // 
+            this.materialTextBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox3.Depth = 0;
             this.materialTextBox3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialTextBox3.Location = new System.Drawing.Point(143, 267);
+            this.materialTextBox3.Location = new System.Drawing.Point(170, 270);
             this.materialTextBox3.MaxLength = 50;
             this.materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox3.Multiline = false;
@@ -110,7 +111,7 @@ namespace WinFormsApp2
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(28, 283);
+            this.materialLabel3.Location = new System.Drawing.Point(63, 287);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(82, 19);
@@ -124,7 +125,7 @@ namespace WinFormsApp2
             this.materialButton1.DrawShadows = true;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(143, 349);
+            this.materialButton1.Location = new System.Drawing.Point(170, 352);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";

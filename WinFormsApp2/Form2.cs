@@ -41,6 +41,8 @@ namespace WinFormsApp2
         }
         //declaracion de string statico
         public static string nombreUsuario;
+        public static string password;
+        public static string nombreCompleto;
         
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -91,6 +93,8 @@ namespace WinFormsApp2
                 {
                     string emailresult = get.Value.usuario;
                     string passresult = get.Value.password;
+                    string nombre = get.Value.nombre;
+
 
                     if (materialTextBox1.Text == emailresult)
                     {
@@ -98,6 +102,11 @@ namespace WinFormsApp2
                         if (materialTextBox2.Text == passresult)
                         {
                             nombreUsuario = materialTextBox1.Text;
+                            password = materialTextBox2.Text;
+                            nombreCompleto = nombre;
+                            
+                            
+
                             Form1 onj = new Form1();
                             this.Hide();
                             onj.ShowDialog();
@@ -111,10 +120,13 @@ namespace WinFormsApp2
 
         private void materialLabel3_Click(object sender, EventArgs e)
         {
+            
             Form3 obj = new Form3();
             this.Hide();
             obj.ShowDialog();
             this.Close();
+
+           
 
         }
     }

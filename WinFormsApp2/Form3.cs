@@ -87,7 +87,6 @@ namespace WinFormsApp2
 
 
                 FirebaseResponse response = client.Set("Usuario/" + materialTextBox1.Text, register);
-
                 register res = response.ResultAs<register>();
                 MessageBox.Show("Registro Realizado");
                 
@@ -103,7 +102,7 @@ namespace WinFormsApp2
         }
         private void id_Leave(object sender, EventArgs e)
         {
-            //Verifica si el correo utilizado existe
+            //Verifica si el usuario utilizado existe
             FirebaseResponse response = client.Get("Usuario/");
             Dictionary<string, register> getSameId = response.ResultAs<Dictionary<string, register>>();
             foreach (var sameID in getSameId)
@@ -111,7 +110,7 @@ namespace WinFormsApp2
                 string getsame = sameID.Value.usuario;
                 if (materialTextBox1.Text == getsame)
                 {
-                    MessageBox.Show("Este correo ya esta en uso");
+                    MessageBox.Show("Este Usuario ya esta en uso");
                     materialTextBox1.Text = string.Empty;
                     break;
                 }
