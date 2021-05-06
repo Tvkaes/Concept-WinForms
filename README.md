@@ -47,3 +47,20 @@ Install-Package MaterialSkin.2 -Version 2.1.4
 ```
 ##### Documentacion 
 mas sobre el uso de [MaterialSkin](https://github.com/IgnaceMaes/MaterialSkin)
+#### Imagenes
+
+![alt tag](https://res.cloudinary.com/dlhdg8qoy/image/upload/v1620285158/Proyecto/unknown.png)
+
+*Ejemplo Crudo del inicio de sesion que tendra en la interfaz*
+
+![alt tag](https://res.cloudinary.com/dlhdg8qoy/image/upload/v1620285166/Proyecto/unknown1.png)
+
+*Tambien podras registrarte sin uso de correo o si se llega a ocupar esta abierto a facil editar*
+
+![alt tag](https://res.cloudinary.com/dlhdg8qoy/image/upload/v1620285166/Proyecto/unknown2.png)
+
+*El dashboard que se utiliza se pretende que sea practico y facil de entender y de leer.* **ToDo**
+
+![alt tag](https://res.cloudinary.com/dlhdg8qoy/image/upload/v1620285778/Proyecto/Captura.png)
+
+*Este apartado del dashboard esta dirigido a la configuracion de Apariencia del interfaz y la configuracion de cuenta e informacion*
