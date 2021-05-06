@@ -15,6 +15,9 @@ Proyecto en c# con WinForms de un sistema de control de inventarios e Inicio de 
 ### ToDo
  - Punto de Venta
  - Generar Reportes PDF
+ - Redundancias en GridView
+ - Enlistar datos en GridView
+ - Mejora de Diseño
 
 En este proyecto se utlizo la libreria de [Firebase](https://firebase.google.com) en C# llamada Firesharp y Mediante los WinForms hacer las peticiones a la base datos.
 
