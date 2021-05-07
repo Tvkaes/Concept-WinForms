@@ -78,7 +78,7 @@ namespace WinFormsApp2
         {
             //Login
 
-            if (string.IsNullOrEmpty(materialTextBox1.Text) || string.IsNullOrEmpty(materialTextBox2.Text))
+            if (string.IsNullOrEmpty(textbox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
                 // verifica si un textbox esta vacio
                 MessageBox.Show("Favor de Ingresar los Datos Correctos");
@@ -96,13 +96,13 @@ namespace WinFormsApp2
                     string nombre = get.Value.nombre;
 
 
-                    if (materialTextBox1.Text == emailresult)
+                    if (textbox1.Text == emailresult)
                     {
 
-                        if (materialTextBox2.Text == passresult)
+                        if (textBox2.Text == passresult)
                         {
-                            nombreUsuario = materialTextBox1.Text;
-                            password = materialTextBox2.Text;
+                            nombreUsuario =textbox1.Text;
+                            password = textBox2.Text;
                             nombreCompleto = nombre;
                             
                             
@@ -118,16 +118,14 @@ namespace WinFormsApp2
             }
         }
 
-        private void materialLabel3_Click(object sender, EventArgs e)
+        
+
+        private void materialLabel1_Click(object sender, EventArgs e)
         {
-            
             Form3 obj = new Form3();
             this.Hide();
             obj.ShowDialog();
             this.Close();
-
-           
-
         }
     }
 }

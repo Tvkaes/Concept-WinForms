@@ -23,9 +23,9 @@ namespace WinFormsApp2
         IFirebaseConfig config = new FirebaseConfig
         {
 
-            
+
             AuthSecret = "fPalsOgHmnJP9rw3LmdvAWmlD8ob93OVMLVIeDdn",
-            
+
             BasePath = "https://csharpfr-428cd-default-rtdb.firebaseio.com/"
 
         };
@@ -40,13 +40,13 @@ namespace WinFormsApp2
             materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Red200, TextShade.WHITE);
         }
 
-        
+
 
         private void Form3_Load(object sender, EventArgs e)
         {
             try
             {
-                
+
                 client = new FireSharp.FirebaseClient(config);
 
                 if (client != null)
@@ -62,7 +62,7 @@ namespace WinFormsApp2
                 MessageBox.Show("Connection Fail.");
             }
         }
-       
+
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
@@ -78,46 +78,49 @@ namespace WinFormsApp2
                 //Clase de Registro
                 var register = new register
                 {
-                    
+
                     nombre = materialTextBox2.Text,
                     password = materialTextBox3.Text,
-                    usuario= materialTextBox1.Text
+                    usuario = materialTextBox1.Text
                 };
+
+
+
                 
 
+                FirebaseResponse respons = client.Get("Usuario/");
+                Dictionary<string, register> getSameId = respons.ResultAs<Dictionary<string, register>>();
 
-                FirebaseResponse response = client.Set("Usuario/" + materialTextBox1.Text, register);
-                register res = response.ResultAs<register>();
-                MessageBox.Show("Registro Realizado");
-                
-                materialTextBox1.Text = string.Empty;
-                materialTextBox2.Text = string.Empty;
-                materialTextBox3.Text = string.Empty;
-            }
-
-            Form2 obj = new Form2();
-            this.Hide();
-            obj.ShowDialog();
-            this.Close();
-        }
-        private void id_Leave(object sender, EventArgs e)
-        {
-            //Verifica si el usuario utilizado existe
-            FirebaseResponse response = client.Get("Usuario/");
-            Dictionary<string, register> getSameId = response.ResultAs<Dictionary<string, register>>();
-            foreach (var sameID in getSameId)
-            {
-                string getsame = sameID.Value.usuario;
-                if (materialTextBox1.Text == getsame)
+                foreach (var sameID in getSameId)
                 {
-                    MessageBox.Show("Este Usuario ya esta en uso");
-                    materialTextBox1.Text = string.Empty;
-                    break;
+                    string getsame = sameID.Value.usuario;
+                    if (materialTextBox1.Text == getsame)
+                    {
+                        MessageBox.Show("Este Usuario ya esta en uso");
+                        materialTextBox1.Text = string.Empty;
+                        break;
+                    }
+                    else {
+                        FirebaseResponse response = client.Set("Usuario/" + materialTextBox1.Text, register);
+                        register res = response.ResultAs<register>();
+                        MessageBox.Show("Registro Realizado");
+
+                        materialTextBox1.Text = string.Empty;
+                        materialTextBox2.Text = string.Empty;
+                        materialTextBox3.Text = string.Empty;
+
+                        Form2 obj = new Form2();
+                        this.Hide();
+                        obj.ShowDialog();
+                        this.Close();
+                    }
+
                 }
 
 
             }
-        }
+           
 
+        }
     }
 }

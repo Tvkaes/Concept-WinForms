@@ -18,7 +18,7 @@ namespace WinFormsApp2
 {
     public partial class Form1 : MaterialForm
     {
-        DataTable dt = new DataTable();
+        
         //configuracion de firebaseConfig
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -67,19 +67,12 @@ namespace WinFormsApp2
             materialLabel7.Text = Form2.password;
             materialLabel5.Text = Form2.nombreCompleto;
 
-            dt.Columns.Add("Consecutivo");
-            dt.Columns.Add("Producto");
-            dt.Columns.Add("Piezas");
-            dt.Columns.Add("Precio");
-
-            dataGridView1.DataSource = dt;
 
             
-        
 
-            
             
         }
+         
         
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -87,21 +80,14 @@ namespace WinFormsApp2
 
         }
 
-        private void materialSwitch1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (materialSwitch1.Checked )
-            {
-                SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.DARK;
-            }
-            else { SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT; }
-        }
+        
 
-        private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
+        private void materialRadioButton1_CheckedChanged_1(object sender, EventArgs e)
         {
            obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Yellow500, MaterialSkin.Primary.Yellow700, MaterialSkin.Primary.Yellow100, MaterialSkin.Accent.Yellow200, TextShade.WHITE);
         }
 
-        private void materialRadioButton2_CheckedChanged(object sender, EventArgs e)
+        private void materialRadioButton2_CheckedChanged_1(object sender, EventArgs e)
         {
             obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Red200, TextShade.WHITE);
         }
@@ -150,10 +136,53 @@ namespace WinFormsApp2
                 textBox2.Text = string.Empty;
                 textBox3.Text = string.Empty;
                 textBox4.Text = string.Empty;
+
+                FirebaseResponse resp = client.Get("Productos");
+                Dictionary<string, productos> data = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, productos>>(resp.Body.ToString());
+                registro(data);
             }
 
 
 
+        }
+
+        private void DataGridView1_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        void registro(Dictionary<string, productos> record)
+        {
+            dataGridView1.Rows.Clear();
+
+            dataGridView1.Columns.Add("Consecutivo", "Consecutivo");
+            dataGridView1.Columns.Add("Producto", "Producto");
+            dataGridView1.Columns.Add("Piezas", "Piezas");
+            dataGridView1.Columns.Add("Precio", "Precio");
+            dataGridView1.Columns.Add("Total","Total");
+
+            foreach (var item in record)
+            {
+                dataGridView1.Rows.Add(
+                    item.Value.consecutivo,
+                    item.Value.producto,
+                    item.Value.piezas,
+                    item.Value.precio,
+                    (item.Value.precio*item.Value.piezas));
+            }
+
+            
+
+
+        }
+
+        private void materialSwitch1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (materialSwitch1.Checked)
+            {
+                SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.DARK;
+            }
+            else { SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT; }
         }
     }
 }
