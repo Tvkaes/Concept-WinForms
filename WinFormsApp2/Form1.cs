@@ -18,7 +18,7 @@ namespace WinFormsApp2
 {
     public partial class Form1 : MaterialForm
     {
-        
+
         //configuracion de firebaseConfig
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -68,23 +68,23 @@ namespace WinFormsApp2
             materialLabel5.Text = Form2.nombreCompleto;
 
 
-            
 
-            
+
+
         }
-         
-        
+
+
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        
+
 
         private void materialRadioButton1_CheckedChanged_1(object sender, EventArgs e)
         {
-           obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Yellow500, MaterialSkin.Primary.Yellow700, MaterialSkin.Primary.Yellow100, MaterialSkin.Accent.Yellow200, TextShade.WHITE);
+            obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Yellow500, MaterialSkin.Primary.Yellow700, MaterialSkin.Primary.Yellow100, MaterialSkin.Accent.Yellow200, TextShade.WHITE);
         }
 
         private void materialRadioButton2_CheckedChanged_1(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace WinFormsApp2
             this.Close();
         }
 
-        private  void materialButton3_Click(object sender, EventArgs e)
+        private void materialButton3_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text)
                 || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text))
@@ -119,7 +119,7 @@ namespace WinFormsApp2
                 //Clase de Registro
                 var productos = new productos
                 {
-                    
+
                     consecutivo = Convert.ToInt32(textBox1.Text),
                     producto = textBox2.Text,
                     piezas = Convert.ToInt32(textBox3.Text),
@@ -127,16 +127,17 @@ namespace WinFormsApp2
                 };
 
 
-
+                // registro en firebase 
                 FirebaseResponse response = client.Set("Productos/" + Convert.ToInt32(textBox1.Text), productos);
-                register res = response.ResultAs<register>();
-                MessageBox.Show("Registro Realizado");
+                MaterialMessageBox.Show("Registro Realizado");
 
                 textBox1.Text = string.Empty;
                 textBox2.Text = string.Empty;
                 textBox3.Text = string.Empty;
                 textBox4.Text = string.Empty;
 
+
+                //insertar datos en la tabla
                 FirebaseResponse resp = client.Get("Productos");
                 Dictionary<string, productos> data = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, productos>>(resp.Body.ToString());
                 registro(data);
@@ -148,7 +149,7 @@ namespace WinFormsApp2
 
         private void DataGridView1_Click(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         void registro(Dictionary<string, productos> record)
@@ -159,7 +160,7 @@ namespace WinFormsApp2
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Piezas", "Piezas");
             dataGridView1.Columns.Add("Precio", "Precio");
-            dataGridView1.Columns.Add("Total","Total");
+            dataGridView1.Columns.Add("Total", "Total");
 
             foreach (var item in record)
             {
@@ -168,10 +169,10 @@ namespace WinFormsApp2
                     item.Value.producto,
                     item.Value.piezas,
                     item.Value.precio,
-                    (item.Value.precio*item.Value.piezas));
+                    (item.Value.precio * item.Value.piezas));
             }
 
-            
+
 
 
         }
@@ -184,5 +185,7 @@ namespace WinFormsApp2
             }
             else { SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT; }
         }
+
     }
 }
+

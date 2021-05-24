@@ -84,10 +84,6 @@ namespace WinFormsApp2
                     usuario = materialTextBox1.Text
                 };
 
-
-
-                
-
                 FirebaseResponse respons = client.Get("Usuario/");
                 Dictionary<string, register> getSameId = respons.ResultAs<Dictionary<string, register>>();
 
