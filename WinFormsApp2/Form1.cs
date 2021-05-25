@@ -186,6 +186,55 @@ namespace WinFormsApp2
             else { SkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT; }
         }
 
+        private void materialButton4_Click(object sender, EventArgs e)
+        {
+            Form4 obj = new Form4();
+            this.Hide();
+            obj.ShowDialog();
+            
+        }
+
+        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(materialTextBox1.Text) || string.IsNullOrEmpty(materialTextBox2.Text))
+            {
+                //Validacion de textbox 
+                MessageBox.Show("Favor de llenar todos los campos");
+            }
+            else
+            {
+
+                //Clase de Registro
+                var register = new register
+                {
+
+                    nombre = materialTextBox1.Text,
+                    password = materialTextBox2.Text,
+                    
+                };
+
+
+                // registro en firebase 
+                FirebaseResponse response = client.Update("Usuario/" + materialLabel6.Text, register);
+                MaterialMessageBox.Show("Registro Actualizado");
+
+                materialTextBox1.Text= string.Empty;
+                materialTextBox2.Text = string.Empty;
+
+
+            }
+        }
+
+        private void materialButton5_Click(object sender, EventArgs e)
+        {
+            FirebaseResponse response = client.Delete("Usuario/" + materialLabel6.Text);
+            MaterialMessageBox.Show("Registro Borrado");
+        }
     }
 }
 
