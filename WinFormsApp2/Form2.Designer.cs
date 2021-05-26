@@ -137,9 +137,9 @@ namespace WinFormsApp2
             this.materialLabel1.Location = new System.Drawing.Point(98, 240);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(225, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(233, 19);
             this.materialLabel1.TabIndex = 7;
-            this.materialLabel1.Text = "No tines cuenta?, Haz click aqui";
+            this.materialLabel1.Text = "No tienes cuenta?, Haz click aqui";
             this.materialLabel1.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
             // Form2

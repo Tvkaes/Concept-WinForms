@@ -66,15 +66,6 @@ namespace WinFormsApp2
         private void materialButton1_Click(object sender, EventArgs e)
         {
 
-            
-            
-                
-                //busca los ususarios que sean iguales a la informacion ingresada
-                FirebaseResponse response = client.Get("Productos/");
-                Dictionary<string, productos> data = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, productos>>(response.Body.ToString());
-                registro(data);
-                
-            
         }
         void registro(Dictionary<string, productos> record)
         {
@@ -86,14 +77,41 @@ namespace WinFormsApp2
                 int precio = get.Value.precio;
 
 
-                if (materialTextBox1.Text == Convert.ToString(consecutivoresult))
+                if (materialTextBox1.Text.Equals(consecutivoresult))
                 {
-                    materialTextBox2.Text = nombreresult;
-                    materialTextBox3.Text = Convert.ToString(piezas);
-                    materialTextBox4.Text = Convert.ToString(precio);
+                    materialLabel7.Text = nombreresult;
+                    materialLabel5.Text = Convert.ToString(piezas);
+                    materialLabel6.Text = Convert.ToString(precio);
                 }
             }
         }
 
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+
+            
+
+                //Clase de Registro
+                var productos = new productos
+                {
+
+                    piezas = Convert.ToInt32(materialTextBox3.Text),
+                    precio = Convert.ToInt32(materialTextBox4.Text)
+
+                };
+
+
+                // registro en firebase 
+                FirebaseResponse response = client.Update("Productos/" +Convert.ToInt32(materialTextBox1), productos);
+                MaterialMessageBox.Show("Registro Actualizado");
+
+                materialTextBox1.Text = string.Empty;
+                materialTextBox3.Text = string.Empty;
+                materialTextBox4.Text = string.Empty;
+
+
+
+            
+        }
     }
 }

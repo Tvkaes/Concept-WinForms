@@ -189,7 +189,7 @@ namespace WinFormsApp2
         private void materialButton4_Click(object sender, EventArgs e)
         {
             Form4 obj = new Form4();
-            this.Hide();
+            
             obj.ShowDialog();
             
         }
@@ -212,7 +212,7 @@ namespace WinFormsApp2
                 //Clase de Registro
                 var register = new register
                 {
-
+                    usuario= materialLabel6.Text,
                     nombre = materialTextBox1.Text,
                     password = materialTextBox2.Text,
                     
@@ -235,6 +235,19 @@ namespace WinFormsApp2
             FirebaseResponse response = client.Delete("Usuario/" + materialLabel6.Text);
             MaterialMessageBox.Show("Registro Borrado");
         }
+
+        private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Yellow500, MaterialSkin.Primary.Yellow700, MaterialSkin.Primary.Yellow100, MaterialSkin.Accent.Yellow200, TextShade.WHITE);
+
+        }
+
+        private void materialRadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            obj.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Red200, TextShade.WHITE);
+        }
     }
+    
 }
+
 

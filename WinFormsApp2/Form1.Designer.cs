@@ -148,9 +148,9 @@ namespace WinFormsApp2
             this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton4.Name = "materialButton4";
-            this.materialButton4.Size = new System.Drawing.Size(172, 36);
+            this.materialButton4.Size = new System.Drawing.Size(109, 36);
             this.materialButton4.TabIndex = 16;
-            this.materialButton4.Text = "Actualizar/Borrar";
+            this.materialButton4.Text = "Actualizar";
             this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton4.UseAccentColor = false;
             this.materialButton4.UseVisualStyleBackColor = true;
@@ -566,6 +566,7 @@ namespace WinFormsApp2
             this.materialRadioButton2.TabStop = true;
             this.materialRadioButton2.Text = "Indigo";
             this.materialRadioButton2.UseVisualStyleBackColor = true;
+            this.materialRadioButton2.CheckedChanged += new System.EventHandler(this.materialRadioButton2_CheckedChanged);
             // 
             // materialRadioButton1
             // 
@@ -582,6 +583,7 @@ namespace WinFormsApp2
             this.materialRadioButton1.TabStop = true;
             this.materialRadioButton1.Text = "Amarillo";
             this.materialRadioButton1.UseVisualStyleBackColor = true;
+            this.materialRadioButton1.CheckedChanged += new System.EventHandler(this.materialRadioButton1_CheckedChanged);
             // 
             // materialSwitch1
             // 
