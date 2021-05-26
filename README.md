@@ -1,5 +1,6 @@
 # C# WinForm
 ## _Control de Inventarios_
+[Manual](https://github.com/Tvkaes/Concept-WinForms/blob/main/Proyecto%20Final.pdf)
 
 Proyecto en c# con WinForms de un sistema de control de inventarios e Inicio de sesion donde se podra registrar Productos y visualizarlos en una tabla y en una grafica , se tendra en cuenta hacer dentro de este apartado un punto de venta pero por el momento solo sera el control de inventarios
 
